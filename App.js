@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
+import PrimaryButton from './components/buttons/PrimaryButton';
+import { NativeRouter, Route } from "react-router-native";
+import Home from './components/pages/Home'
+import Game from './Game'
+import GameOver from './components/pages/GameOver'
 
-export default function App() {
+function App(props) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeRouter>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/game" component={Game} />
+      <Route exact path="/gameover" component={GameOver} />
+    </NativeRouter>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  mainPageContainer:{
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    justifyContent: 'center'
+  }
+})
+
+
+export default App;
