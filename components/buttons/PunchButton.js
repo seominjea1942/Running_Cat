@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet,TouchableHighlight, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Punch from '../../Punch'
 function PunchButton({mouseId, mouseDetected, entities, setMouseDetected, updateScore}) {
     return (
-        <TouchableHighlight
+        <TouchableOpacity
+            style={styles.punchButtonContainer}
             onPress={
                 ()=>{
                     if(mouseDetected===true){
@@ -14,22 +15,29 @@ function PunchButton({mouseId, mouseDetected, entities, setMouseDetected, update
                 }
             }
         >
-            <View style={styles.punchButton}>
-                <Text style={styles.punchButtonText}>Punch</Text>
-            </View>
-        </TouchableHighlight>
+            <Image
+                style ={styles.punchButton}
+                source={require('../../assets/PunchButton-01.png')}
+            />
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
-    punchButton:{
-        backgroundColor: 'pink',
-      fontSize: 36,
-      position: 'absolute',
-      top: Constants.MAX_HEIGHT - 100,
-      left: 40,
-      padding: 24
-
-    },
+    punchButtonContainer:{
+        position: 'absolute',
+        top: Constants.MAX_HEIGHT - 120,
+        left:40,
+        width: 180,
+        height: 100,
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+    punchButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+      }
 })
 export default PunchButton;

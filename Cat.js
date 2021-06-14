@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { View } from 'react-native'
+import { StyleSheet,View,Image } from 'react-native'
 
-export default class Bird extends Component {
+export default class Cat extends Component {
+    
     render() {
         const width = this.props.size[0];
         const height = this.props.size[1];
@@ -16,10 +17,27 @@ export default class Bird extends Component {
                 left: x,
                 width: width,
                 height: height,
-                backgroundColor: this.props.color
             }}
             >
+                <Image
+                style={styles.image}
+                source={require('./assets/cat_animation/splash_cat_animation1.gif')}
+      />
             </View>
         )
     }
 }
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width:10,
+        height:10,
+    },
+    image: {
+        position:'absolute',
+        width:458/3,
+        height:315/3,
+    }
+});

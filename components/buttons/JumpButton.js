@@ -1,34 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Jump from '../../Jump'
 
 function JumpButton({character, setMaxJumpCount, maxJumpCount}) {
     return (
-        <TouchableHighlight
+        <TouchableOpacity
         onPress={()=>{
         Jump(character, setMaxJumpCount, maxJumpCount)
-        }}>
-        <View 
-        style={styles.jumpButton}
+        }}
+        style={styles.jumpButtonContainer}
         >
-          <Text style={styles.jumpButtonText}>
-            Jump
-          </Text>
-        </View>
-        </TouchableHighlight>
+          <Image
+          style ={styles.jumpButton}
+          source={require('../../assets/JumpButton-01.png')}
+          />
+        </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
-    jumpButton: {
-      backgroundColor: 'purple',
-      fontSize: 36,
+    jumpButtonContainer:{
       position: 'absolute',
-      top: Constants.MAX_HEIGHT - 100,
-      right: 60,
-      padding: 24
+      top: Constants.MAX_HEIGHT - 120,
+      right:60,
+      width: 180,
+      height: 100,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
-    jumpButtonText:{
-      color: 'white'
+    jumpButton: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
     }
   });
   
